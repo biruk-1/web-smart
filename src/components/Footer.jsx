@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-
+import logo from '../assets/logo.png';
 function Footer() {
   return (
     <footer className="py-8 bg-black text-white text-center">
       <div className="container mx-auto px-4">
-        <img src="/path-to-logo.png" alt="Your Company Logo" className="w-32 mb-4 mx-auto" />
-        <p className="mb-4 text-gray-300">Email: contact@yourcompany.com | Phone: (123) 456-7890</p>
+        <img src= {logo} alt="Your Company Logo" className="w-32 mb-4 mx-auto" />
+        <p className="mb-4 text-gray-300">Email: birukchali86@gmail.com | Phone: +(251)-940675703</p>
         <div className="flex justify-center gap-4 mb-4">
           <motion.a
             href="https://facebook.com"
@@ -32,7 +32,7 @@ function Footer() {
             <i className="fab fa-instagram"></i>
           </motion.a>
         </div>
-        <p className="text-gray-300">© 2025 [Your Company Name]. All rights reserved.</p>
+        <p className="text-gray-300">© 2025 Web-smart. All rights reserved.</p>
       </div>
     </footer>
   );

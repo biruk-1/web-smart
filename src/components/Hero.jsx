@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import logo from '../assets/logo.png'; 
 
 function Hero() {
   return (
@@ -35,7 +36,7 @@ function Hero() {
       </div>
 
       {/* Logo in top-left corner */}
-      <img src="/path-to-logo.png" alt="Your Company Logo" className="absolute top-4 left-4 w-32" />
+      <img src={logo} alt="Your Company Logo" className="absolute top-4 left-4 w-32 h-auto" />
     </section>
   );
 }
