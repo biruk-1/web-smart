@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion'; // Import motion from framer-motion
-import { useState } from 'react'; // Import useState from 'react', not 'react-router-dom'
+import { useState, useEffect } from 'react'; // Import useState and useEffect
 import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
 import Services from './components/Services.jsx';
@@ -13,14 +13,33 @@ import logoText from './assets/logo.png'; // Example import for a stylized text-
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavFixed, setIsNavFixed] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Scroll effect for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const nav = document.querySelector(".navbar");
+      if (nav) {
+        const navTop = nav.getBoundingClientRect().top;
+        if (navTop <= 0) {
+          setIsNavFixed(true);
+        } else {
+          setIsNavFixed(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-black text-white">
+      <div className="min-h-screen flex flex-col bg-black text-white cursor-zoom-in">
         {/* Small, Fixed Information Header (Non-Scrollable, Reduced Height) */}
         <header className="w-full bg-gradient-to-r from-teal-900 to-purple-900 text-white text-sm py-1 shadow-md z-50">
           <div className="container mx-auto flex items-center justify-between px-4">
@@ -33,7 +52,7 @@ function App() {
         </header>
 
         {/* Scrollable Navigation Bar with Hamburger Menu for Mobile */}
-        <nav className="w-full bg-gradient-to-r from-darkBlue to-teal p-4 border-b-2 border-dashed border-yellow-500 z-40">
+        <nav className={`navbar w-full bg-gradient-to-r from-darkBlue to-teal p-4 border-b-2 border-dashed border-yellow-500 z-40 ${isNavFixed ? "fixed top-0 left-0 right-0 shadow-lg" : ""}`}>
           <div className="container mx-auto flex items-center justify-between">
             {/* Logo (Responsive) */}
             <img src={logoText} alt="WebSmart Logo" className="w-40 h-auto filter drop-shadow-lg md:w-32" />
