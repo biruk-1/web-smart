@@ -1,12 +1,17 @@
 import { motion } from 'framer-motion';
+import casting from '../assets/casting2.png';
+import convene from '../assets/convene.png';
+import portfolio from '../assets/Portfolio.png';
+import consultancy from '../assets/conseltuncy.png'; // Corrected typo (assuming the file is named Consultancy.png)
+import dashboard from '../assets/Dashboard.png';
 
 function Work() {
   const projects = [
-    { title: "Casting Website", image: "/path-to-casting-image.png" },
-    { title: "Event Organizers App", image: "/path-to-event-app-image.png" },
-    { title: "Personal Portfolios", image: "/path-to-portfolio-image.png" },
-    { title: "Study Abroad Consultancy", image: "/path-to-study-image.png" },
-    { title: "Admin Dashboards", image: "/path-to-dashboard-image.png" },
+    { title: "Casting Website", image: casting },
+    { title: "Event Organizers App", image: convene },
+    { title: "Personal Portfolios", image: portfolio },
+    { title: "Study Abroad Consultancy", image: consultancy }, // Updated to match the corrected import
+    { title: "Admin Dashboards", image: dashboard },
   ];
 
   return (
@@ -14,7 +19,7 @@ function Work() {
       <div className="container mx-auto text-center px-4">
         <h2 className="text-4xl font-bold mb-12 text-shadow">Our Work Speaks for Itself</h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto text-gray-300">
-          At [Your Company Name], we take pride in delivering exceptional results for our clients. Explore a few examples of the projects we’ve worked on and the impact they’ve made.
+          At Web-smart, we take pride in delivering exceptional results for our clients. Explore a few examples of the projects we’ve worked on and the impact they’ve made.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (

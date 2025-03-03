@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+// import tech from '../assets/techIterface.png';
+import Tech from '../assets/techInterface.png'; 
+
 
 function About() {
   return (
@@ -26,7 +29,7 @@ function About() {
           transition={{ duration: 0.8 }}
           className="md:w-1/2"
         >
-          <img src="/path-to-tech-image.png" alt="Tech Interface" className="rounded-full w-full max-w-md shadow-lg" />
+          <img src={Tech} alt="Tech Interface" className="rounded-full w-full max-w-md shadow-lg" />
         </motion.div>
       </div>
     </section>
